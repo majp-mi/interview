@@ -28,10 +28,40 @@ class VolatileDemo {
     }
 }
 
+class SingtonDemo {
+    // volatile禁止指令重排
+    private volatile static SingtonDemo instance = null;
+
+    private SingtonDemo() {
+        System.out.println("SingtonDemo constructor");
+    }
+
+    //DCL double check lock   双端检锁机制
+    public static SingtonDemo getInstance() {
+        if (instance == null) {
+            synchronized (SingtonDemo.class) {
+                if (instance == null) {
+                    instance = new SingtonDemo();
+                }
+            }
+        }
+        return instance;
+    }
+}
+
 public class DataDemo {
     public static void main(String[] args) {
-        volatileTest();
-        volatileTest2();
+//        volatileTest();
+//        volatileTest2();
+        protectedResort();
+    }
+
+    public static void protectedResort() {
+        for (int i = 0; i < 10; i++) {
+            new Thread(() -> {
+                System.out.println(Thread.currentThread().getName() + "\t" + SingtonDemo.getInstance());
+            }, String.valueOf(i)).start();
+        }
     }
 
     public static void volatileTest2() {
