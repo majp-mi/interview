@@ -1,6 +1,7 @@
 package com.test.volatileDemo;
 
 import java.util.*;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * ArrayList线程不安全
@@ -12,7 +13,8 @@ public class ListDemo {
 
        // java.util.ConcurrentModificationException
 //        List<String> list = new ArrayList<String>();
-        List<String> list = Collections.synchronizedList(new ArrayList<>());
+//        List<String> list = Collections.synchronizedList(new ArrayList<>());
+        List<String> list = new CopyOnWriteArrayList<>();
         for (int i = 0; i < 30; i++) {
             new Thread(()->{
                 list.add(UUID.randomUUID().toString().substring(0,8));
