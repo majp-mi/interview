@@ -11,10 +11,19 @@ import java.util.concurrent.CopyOnWriteArraySet;
  * 解决方法：1.使用Vector;
  *          2.使用Collections.synchronizedList(new ArrayList<>())
  */
+
 public class ListDemo {
     public static void main(String[] args) {
-        mapNotSafe();
+//        mapNotSafe();
+        String str = new String("aaa");
+//        String str = "aaa";
+        setStr(str);
+        System.out.println(str);  //aaa
 
+    }
+
+    public static void setStr(String s) {
+        s = "test";
     }
 
     public static void mapNotSafe() {
