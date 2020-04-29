@@ -17,6 +17,7 @@ public class ListDemo {
 //        mapNotSafe();
         String str = new String("aaa");
 //        String str = "aaa";
+        //字符串参数传递为副本拷贝机制
         setStr(str);
         System.out.println(str);  //aaa
 
