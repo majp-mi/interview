@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * @ClassName BlockingQeuueDemo
  * @Author majp
- * @Description TODO
+ * @Description 阻塞队列四种类型方法演示
  * @Date 2020-05-05 0005 21:05
  * Version 1.0
  **/
