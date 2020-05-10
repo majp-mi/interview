@@ -21,6 +21,14 @@ interface Foo {
     }
 }
 
+// 函数式接口中default方法可以不用实现
+class FooImlp implements Foo{
+    @Override
+    public void sayHello() {
+
+    }
+}
+
 /**
  * @ClassName LambdaExpressDemo
  * @Author majp
