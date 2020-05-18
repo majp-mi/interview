@@ -21,7 +21,7 @@ public class ThreadPoolDemo {
 //        ExecutorService executor = Executors.newCachedThreadPool(); //创建可变线程数，会创建出大量的线程，导致OOM
 //        ThreadPoolExecutor pool = new ThreadPoolExecutor();
         // CallerRunsPolicy回退调用者机制
-        ExecutorService pool = new ThreadPoolExecutor(2,40,1, TimeUnit.SECONDS,new LinkedBlockingDeque<>(3),Executors.defaultThreadFactory(),new ThreadPoolExecutor.CallerRunsPolicy());
+        ExecutorService pool = new ThreadPoolExecutor(2, 40, 1, TimeUnit.SECONDS, new LinkedBlockingDeque<>(3), Executors.defaultThreadFactory(), new ThreadPoolExecutor.CallerRunsPolicy());
         try {
             for (int i = 1; i <= 10; i++) {
                 pool.execute(() -> {
@@ -39,7 +39,7 @@ public class ThreadPoolDemo {
          * IO密集型：cpu核数/（1-阻塞系数）  阻塞系数一般为0.8~0.9
          */
         System.out.println("cpu核数：");
-        //4
+        //cpu核数为4，则合理线程数应配置为4/(1-0.9)=40
         System.out.println(Runtime.getRuntime().availableProcessors());
 
 
