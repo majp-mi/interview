@@ -1,5 +1,6 @@
 package com.juc.demo;
 
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -22,6 +23,8 @@ public class MapDemo {
         map.put("b1","b1111");
         map.put("b2","b2111");
         map.put("b3","b3111");
+        System.out.println(map);
+        System.out.println(map.toString());
         StringBuilder builder = new StringBuilder();
         Iterator<String> iterator = map.keySet().iterator();
         while (iterator.hasNext()){
@@ -34,6 +37,12 @@ public class MapDemo {
 
         }
         System.out.println(builder.toString());
+        System.out.println("**********************");
+        Map<String,Object> map1 = new HashMap<>();
+        map1.put("1","00");
+        // String和String类型的Object对象比较，equals会将object转成string再作比较
+        System.out.println("00".equals(map1.get("1"))); // true
+        System.out.println("**********************");
 
 
     }
